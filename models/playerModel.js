@@ -10,9 +10,8 @@ const playerSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    country: {
-        type: String,
-        required: true,
+    team:{
+
     },
     role: {
         type: String,
@@ -25,12 +24,6 @@ const playerSchema = new mongoose.Schema({
     },
     bowlingStyle: {
         type: String,
-    },
-    dateOfBirth: {
-        type: Date,
-    },
-    debutDate: {
-        type: Date,
     },
     matches: {
         type: Number,
@@ -65,8 +58,6 @@ playerSchema.pre('save', function (next) {
         this.average = this.runs / this.matches;
         this.strikeRate = (this.runs / this.matches) * 100;
     }
-
-
     next();
 });
 
